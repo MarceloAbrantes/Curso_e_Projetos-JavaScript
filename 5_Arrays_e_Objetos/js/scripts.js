@@ -274,3 +274,116 @@ const frase = "O rato roeu a roupa do rei de Roma";
 const arrayDaFrase = frase.split(" "); // dividiu com base no espaço
 
 console.log(arrayDaFrase);
+
+
+// 21 - Join (juntando array em uma string)
+const fraseDenovo = arrayDaFrase.join(" ");
+
+console.log(fraseDenovo);
+
+const itensParaComprar = ["Mouse", "Teclado", "Monitor"];
+
+const fraseDeCompra = `Precisamos comprar: ${itensParaComprar.join(", ")}.`; // juntou com base no espaço
+
+console.log(fraseDeCompra);
+
+
+// 22 - Repeat (repete um texto n vezes)
+const palavra = "Testando ";
+
+console.log(palavra.repeat(5));
+
+
+// 23 - Rest Operator (receber indefinidos argumentos na função (...))
+const somaInfinita = (...args) => {
+
+    let total = 0;
+
+    for (let i = 0; i < args.length; i++) {
+
+        total += args[i];
+
+    }
+
+    return total;
+};
+
+console.log(somaInfinita(1, 2, 3));
+
+console.log(somaInfinita(1, 20, 34, 43234, 23443, 2342342, 22, 123, 123, 12));
+
+
+// 24 - for..of (estrutura semelhante ao for so que mais simples baseado no array utilizado)
+const somaInfinita2 = (...args) => {
+
+
+    let total = 0;
+
+    for (num of args) {
+        total += num;
+    }
+
+    return total;
+};
+
+console.log(somaInfinita2(1, 2, 4));
+
+console.log(somaInfinita2(5, 6, 1, 23, 2, 5, 5, 3, 3));
+
+
+// 25 - Destructuring em objetos (permite desistruturar algum dado permitindo criar váriaveis)
+const userDetails = {
+    firstName: "Marcelo",
+    lastName: "Abrantes",
+    job: "eng",
+};
+
+const { firstName, lastName, job } = userDetails;
+
+console.log(firstName, lastName, job);
+
+// renomear variaveis
+const { firstName: primeiroNome } = userDetails;
+
+console.log(primeiroNome);
+
+
+// 26 - Destructuring em arrays (desestruturar array em variáveis)
+const myList = ["Avião", "Submarino", "Carro", "Trator"];
+
+const [veiculoA, veiculoB, veiculoC] = myList;
+
+console.log(veiculoA, veiculoB, veiculoC);
+
+
+// 27 - JSON
+const myJson = '{"name": "Marcelo", "age": 25, "skills": ["Java", "JavaScript","Python"]}';
+
+console.log(myJson);
+
+console.log(typeof myJson);
+
+
+// 28 - Conversão de JSON para objeto e objeto para JSON
+const myObject = JSON.parse(myJson); //json para objeto
+
+console.log(myObject);
+
+console.log(myObject.name);
+
+console.log(typeof myObject);
+
+// json invalido
+const badJson = '{"name": Marcelo, "age": 25}';
+
+// const myBadObject = JSON.parse(badJson);
+
+myObject.isOpenToWork = true;
+
+console.log(myObject);
+
+const myNewJson = JSON.stringify(myObject); //objeto para json
+
+console.log(myNewJson);
+
+console.log(typeof myNewJson);
